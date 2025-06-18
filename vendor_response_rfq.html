@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vendor RFQ Response</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+  <div class="max-w-4xl mx-auto mt-10 p-8 bg-white shadow-xl rounded-xl">
+    <h2 class="text-3xl font-bold text-purple-700 text-center mb-8">📥 Vendor RFQ Response</h2>
+
+    <form onsubmit="return handleVendorResponse(event)">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label class="block text-sm font-semibold text-gray-700">RFQ Number</label>
+          <input type="text" value="RFQ-2024-001" disabled class="w-full p-3 border border-gray-300 rounded-md bg-gray-100">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700">Buyer Company</label>
+          <input type="text" value="Techcarvings Pvt Ltd" disabled class="w-full p-3 border border-gray-300 rounded-md bg-gray-100">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700">Product Description</label>
+          <textarea disabled rows="3" class="w-full p-3 border border-gray-300 rounded-md bg-gray-100">Supply of electrical cable, 3-core, 1.5 sq mm, 1000 meters</textarea>
+        </div>
+      </div>
+
+      <hr class="my-6">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label class="block text-sm font-semibold text-gray-700">Vendor Name</label>
+          <input type="text" placeholder="ABC Electricals Pvt Ltd" class="w-full p-3 border border-gray-300 rounded-md" required>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700">Contact Email</label>
+          <input type="email" placeholder="vendor@example.com" class="w-full p-3 border border-gray-300 rounded-md" required>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        <div>
+          <label class="block text-sm font-semibold text-gray-700">Quoted Price (per unit)</label>
+          <input type="number" placeholder="Enter price" class="w-full p-3 border border-gray-300 rounded-md" required>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700">Currency</label>
+          <select class="w-full p-3 border border-gray-300 rounded-md">
+            <option>INR</option>
+            <option>USD</option>
+            <option>EUR</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-gray-700">Delivery Timeline (Days)</label>
+          <input type="number" placeholder="E.g., 15" class="w-full p-3 border border-gray-300 rounded-md" required>
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <label class="block text-sm font-semibold text-gray-700">Terms & Conditions (Optional)</label>
+        <textarea rows="3" placeholder="Warranty, advance payment, delivery terms, etc." class="w-full p-3 border border-gray-300 rounded-md"></textarea>
+      </div>
+
+      <div class="mt-6">
+        <label class="block text-sm font-semibold text-gray-700">Upload Quotation Document (PDF)</label>
+        <input type="file" accept=".pdf" class="w-full p-2 border border-gray-300 rounded-md">
+      </div>
+
+      <div class="text-center pt-6">
+        <button type="submit" class="bg-purple-700 hover:bg-purple-800 text-white px-8 py-3 rounded-lg text-lg shadow-md">Submit Quotation</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function handleVendorResponse(event) {
+      event.preventDefault();
+      const price = document.querySelector('input[placeholder="Enter price"]').value.trim();
+      const days = document.querySelector('input[placeholder="E.g., 15"]').value.trim();
+
+      if (!price || !days) {
+        alert("Please fill in all required fields before submitting.");
+        return false;
+      }
+
+      const messageBox = document.createElement('div');
+      messageBox.className = 'fixed bottom-5 right-5 bg-blue-100 border border-blue-300 text-blue-800 px-6 py-4 rounded-xl shadow-lg z-50';
+      messageBox.innerHTML = `
+        <strong class='block mb-1'>✅ Quotation Submitted Successfully</strong>
+        <span>Your quotation has been submitted successfully and is now under review by the buyer. You will be contacted if your offer is shortlisted.</span>
+      `;
+      document.body.appendChild(messageBox);
+
+      setTimeout(() => {
+        if (document.body.contains(messageBox)) {
+          document.body.removeChild(messageBox);
+        }
+      }, 8000);
+
+      return true;
+    }
+  </script>
+</body>
+</html>

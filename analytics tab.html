@@ -1,0 +1,392 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Vendor Portal Analytics / Reports</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    rel="stylesheet"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* Custom scrollbar for sidebar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #8e24aa; /* Purple shade */
+      border-radius: 3px;
+    }
+  </style>
+ </head>
+ <body class="bg-gray-50 font-sans text-gray-900" style="background-color:#F9F9F9;">
+  <div class="min-h-screen flex bg-gray-100" style="background-color:#F9F9F9;">
+   <!-- Sidebar -->
+   <aside
+     class="w-64 bg-gray-50 border-r border-gray-200 flex flex-col justify-between"
+     style="background-color:#FAFAFA;"
+   >
+    <div>
+     <div class="px-6 py-5 border-b border-gray-200 flex items-center space-x-3">
+      <img
+        alt="Mitsubishi logo red diamond emblem"
+        class="w-6 h-6 object-contain"
+        height="24"
+        src="https://logohistory.net/wp-content/uploads/2023/01/Mitsubishi-Emblem.png"
+        width="24"
+      />
+      <span class="font-semibold text-gray-900 text-sm" style="color:#333333;">
+       Vendor Portal
+      </span>
+     </div>
+     <nav class="mt-4 flex flex-col space-y-1 px-2">
+      <a
+        class="flex items-center space-x-3 text-gray-700 hover:text-purple-700 text-sm font-medium px-3 py-2 rounded"
+        href="#"
+        style="color:#333333;"
+      >
+       <i class="fas fa-th-large w-4"></i>
+       <span>Dashboard</span>
+      </a>
+      <a
+        class="flex items-center space-x-3 text-gray-700 hover:text-purple-700 text-sm font-medium px-3 py-2 rounded"
+        href="#"
+        style="color:#333333;"
+      >
+       <i class="fas fa-file-alt w-4"></i>
+       <span>Orders</span>
+      </a>
+      <a
+        class="flex items-center space-x-3 text-gray-700 hover:text-purple-700 text-sm font-medium px-3 py-2 rounded"
+        href="#"
+        style="color:#333333;"
+      >
+       <i class="fas fa-box-open w-4"></i>
+       <span>Products / Inventory</span>
+      </a>
+      <a
+        class="flex items-center space-x-3 text-gray-700 hover:text-purple-700 text-sm font-medium px-3 py-2 rounded"
+        href="#"
+        style="color:#333333;"
+      >
+       <i class="fas fa-credit-card w-4"></i>
+       <span>Payments</span>
+      </a>
+      <a
+        class="flex items-center space-x-3 text-gray-700 hover:text-purple-700 text-sm font-medium px-3 py-2 rounded"
+        href="#"
+        style="color:#333333;"
+      >
+       <i class="fas fa-headset w-4"></i>
+       <span>Support Tickets</span>
+      </a>
+      <a
+        class="flex items-center space-x-3 text-gray-700 hover:text-purple-700 text-sm font-medium px-3 py-2 rounded"
+        href="#"
+        style="color:#333333;"
+      >
+       <i class="fas fa-truck-loading w-4"></i>
+       <span>ASN</span>
+      </a>
+      <a
+        aria-current="page"
+        class="flex items-center space-x-3 text-white text-sm font-semibold px-5 py-2 rounded-full shadow-md"
+        href="#"
+        style="background-color:#8E24AA;"
+      >
+       <i class="fas fa-chart-bar w-4"></i>
+       <span>Analytics / Reports</span>
+      </a>
+      <a
+        class="flex items-center space-x-3 text-gray-700 hover:text-purple-700 text-sm font-medium px-3 py-2 rounded"
+        href="#"
+        style="color:#333333;"
+      >
+       <i class="fas fa-cog w-4"></i>
+       <span>Settings</span>
+      </a>
+     </nav>
+    </div>
+    <div
+      class="px-6 py-4 border-t border-gray-200 text-gray-700 text-sm flex items-center space-x-2 cursor-pointer hover:text-purple-700"
+      style="color:#333333;"
+    >
+     <i class="fas fa-sign-out-alt w-4"></i>
+     <span>Log at</span>
+    </div>
+   </aside>
+   <!-- Main content -->
+   <main class="flex-1 p-6">
+    <section
+      class="bg-white rounded-md shadow-sm p-6 max-w-5xl mx-auto"
+      style="background-color:#FFFFFF; border: 1px solid #E5E7EB;"
+    >
+     <h1 class="text-2xl font-semibold mb-6" style="color:#6A1B9A;">
+      Analytics / Reports
+     </h1>
+     <div class="flex flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0 mb-8">
+      <button
+        id="btnPO"
+        class="flex-1 bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 rounded shadow focus:outline-none focus:ring-2 focus:ring-purple-600"
+        type="button"
+      >
+       Purchase Order (PO) Analytics
+      </button>
+      <button
+        id="btnInvoice"
+        class="flex-1 bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 rounded shadow focus:outline-none focus:ring-2 focus:ring-purple-600"
+        type="button"
+      >
+       Invoice Analytics
+      </button>
+      <button
+        id="btnDelivery"
+        class="flex-1 bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 rounded shadow focus:outline-none focus:ring-2 focus:ring-purple-600"
+        type="button"
+      >
+       Delivery Performance
+      </button>
+      <button
+        id="btnPayment"
+        class="flex-1 bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 rounded shadow focus:outline-none focus:ring-2 focus:ring-purple-600"
+        type="button"
+      >
+       Payment Reports
+      </button>
+      <button
+        id="btnDocument"
+        class="flex-1 bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 rounded shadow focus:outline-none focus:ring-2 focus:ring-purple-600"
+        type="button"
+      >
+       Document Summary Reports
+      </button>
+     </div>
+
+     <div id="contentArea" class="border border-gray-300 rounded p-6 min-h-[300px] text-gray-800">
+      <!-- Dynamic content will appear here -->
+      <p class="text-center text-gray-500">Select a report to view details.</p>
+     </div>
+    </section>
+   </main>
+  </div>
+
+  <script>
+    const contentArea = document.getElementById("contentArea");
+
+    const reportsData = {
+      po: {
+        title: "Purchase Order (PO) Analytics",
+        description:
+          "Overview of purchase orders including total count, status distribution, and trends.",
+        stats: [
+          { label: "Total POs", value: 1245 },
+          { label: "Open POs", value: 312 },
+          { label: "Closed POs", value: 900 },
+          { label: "Pending Approval", value: 33 },
+        ],
+        chartData: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+          datasets: [
+            {
+              label: "PO Count",
+              data: [100, 120, 90, 130, 110],
+              backgroundColor: "#8E24AA",
+              borderColor: "#6A1B9A",
+              borderWidth: 1,
+              fill: true,
+              tension: 0.3,
+            },
+          ],
+        },
+        chartType: "line",
+      },
+      invoice: {
+        title: "Invoice Analytics",
+        description:
+          "Summary of invoices including total invoiced amount, overdue invoices, and payment status.",
+        stats: [
+          { label: "Total Invoices", value: 980 },
+          { label: "Paid", value: 850 },
+          { label: "Overdue", value: 80 },
+          { label: "Disputed", value: 50 },
+        ],
+        chartData: {
+          labels: ["Paid", "Overdue", "Disputed"],
+          datasets: [
+            {
+              label: "Invoices",
+              data: [850, 80, 50],
+              backgroundColor: ["#8E24AA", "#BA68C8", "#CE93D8"],
+            },
+          ],
+        },
+        chartType: "doughnut",
+      },
+      delivery: {
+        title: "Delivery Performance",
+        description:
+          "Metrics on delivery timeliness, delays, and fulfillment rates.",
+        stats: [
+          { label: "On-time Deliveries", value: "92%" },
+          { label: "Late Deliveries", value: "8%" },
+          { label: "Average Delay", value: "1.5 days" },
+          { label: "Total Deliveries", value: 1500 },
+        ],
+        chartData: {
+          labels: ["On-time", "Late"],
+          datasets: [
+            {
+              label: "Delivery Performance",
+              data: [92, 8],
+              backgroundColor: ["#8E24AA", "#CE93D8"],
+            },
+          ],
+        },
+        chartType: "pie",
+      },
+      payment: {
+        title: "Payment Reports",
+        description:
+          "Details on payment cycles, outstanding payments, and payment methods.",
+        stats: [
+          { label: "Total Payments", value: 1200 },
+          { label: "Pending Payments", value: 150 },
+          { label: "Average Payment Time", value: "15 days" },
+          { label: "Payment Methods", value: "Bank Transfer, Credit Card" },
+        ],
+        chartData: {
+          labels: ["Bank Transfer", "Credit Card", "Others"],
+          datasets: [
+            {
+              label: "Payment Methods",
+              data: [700, 400, 100],
+              backgroundColor: ["#8E24AA", "#BA68C8", "#CE93D8"],
+            },
+          ],
+        },
+        chartType: "bar",
+      },
+      document: {
+        title: "Document Summary Reports",
+        description:
+          "Summary of documents processed including counts by type and status.",
+        stats: [
+          { label: "Total Documents", value: 3000 },
+          { label: "Processed", value: 2800 },
+          { label: "Pending", value: 200 },
+          { label: "Rejected", value: 50 },
+        ],
+        chartData: {
+          labels: ["Processed", "Pending", "Rejected"],
+          datasets: [
+            {
+              label: "Documents",
+              data: [2800, 200, 50],
+              backgroundColor: ["#8E24AA", "#BA68C8", "#CE93D8"],
+            },
+          ],
+        },
+        chartType: "doughnut",
+      },
+    };
+
+    function renderStats(stats) {
+      return `
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-6">
+          ${stats
+            .map(
+              (stat) => `
+            <div class="bg-purple-50 rounded p-4 text-center shadow">
+              <p class="text-2xl font-bold text-purple-700">${stat.value}</p>
+              <p class="text-sm text-purple-900 mt-1">${stat.label}</p>
+            </div>
+          `
+            )
+            .join("")}
+        </div>
+      `;
+    }
+
+    function renderContent(reportKey) {
+      const report = reportsData[reportKey];
+      if (!report) {
+        contentArea.innerHTML =
+          '<p class="text-center text-gray-500">Select a report to view details.</p>';
+        return;
+      }
+      contentArea.innerHTML = `
+        <h2 class="text-xl font-semibold mb-2 text-purple-800">${report.title}</h2>
+        <p class="mb-6 text-gray-700">${report.description}</p>
+        ${renderStats(report.stats)}
+        <canvas id="reportChart" class="max-w-full" style="max-height:300px;"></canvas>
+      `;
+
+      // Render chart
+      const ctx = document.getElementById("reportChart").getContext("2d");
+      if (window.currentChart) {
+        window.currentChart.destroy();
+      }
+      window.currentChart = new Chart(ctx, {
+        type: report.chartType,
+        data: report.chartData,
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: "bottom",
+              labels: {
+                color: "#6A1B9A",
+                font: { weight: "bold" },
+              },
+            },
+            tooltip: {
+              enabled: true,
+            },
+          },
+          scales:
+            report.chartType === "bar" || report.chartType === "line"
+              ? {
+                  y: {
+                    beginAtZero: true,
+                    ticks: {
+                      color: "#6A1B9A",
+                      font: { weight: "bold" },
+                    },
+                    grid: {
+                      color: "#EDE7F6",
+                    },
+                  },
+                  x: {
+                    ticks: {
+                      color: "#6A1B9A",
+                      font: { weight: "bold" },
+                    },
+                    grid: {
+                      color: "#EDE7F6",
+                    },
+                  },
+                }
+              : {},
+        },
+      });
+    }
+
+    document.getElementById("btnPO").addEventListener("click", () => {
+      renderContent("po");
+    });
+    document.getElementById("btnInvoice").addEventListener("click", () => {
+      renderContent("invoice");
+    });
+    document.getElementById("btnDelivery").addEventListener("click", () => {
+      renderContent("delivery");
+    });
+    document.getElementById("btnPayment").addEventListener("click", () => {
+      renderContent("payment");
+    });
+    document.getElementById("btnDocument").addEventListener("click", () => {
+      renderContent("document");
+    });
+  </script>
+ </body>
+</html>

@@ -1,0 +1,245 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Vendor Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <style>
+    /* Custom colors for purple theme */
+    :root {
+      --purple-primary: #8e24aa;
+      --purple-dark: #6a1b9a;
+      --gray-light-bg: #f5f5f5;
+      --gray-lighter-bg: #fafafa;
+      --gray-border: #e0e0e0;
+      --text-dark-gray: #212121;
+      --text-gray: #333333;
+    }
+  </style>
+</head>
+<body class="bg-[var(--gray-lighter-bg)] font-sans text-[var(--text-dark-gray)]">
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 border-r border-[var(--gray-border)] flex flex-col bg-[var(--gray-light-bg)]">
+      <div class="flex items-center gap-2 px-4 py-3 border-b border-[var(--gray-border)]">
+        <img
+          src="https://logos-world.net/wp-content/uploads/2021/09/Mitsubishi-Emblem.png"
+          alt="Mitsubishi logo red three diamond mark"
+          class="w-6 h-6 object-contain"
+          width="24"
+          height="24"
+        />
+        <span class="font-semibold text-[var(--text-dark-gray)] text-base">Vendor Portal</span>
+      </div>
+      <nav class="flex-1 overflow-y-auto">
+        <ul class="py-4 space-y-1">
+          <li>
+            <a
+              href="#"
+              class="flex items-center gap-3 px-5 py-2 rounded-full text-[var(--text-gray)] hover:text-[var(--purple-primary)] text-sm"
+              ><i class="fas fa-th-large text-[var(--text-gray)] text-base"></i> Dashboard</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center gap-3 px-5 py-2 text-[var(--text-gray)] hover:text-[var(--purple-primary)] text-sm"
+              ><i class="fas fa-clipboard-list text-[var(--text-gray)] text-base"></i> Orders</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center gap-3 px-5 py-2 text-[var(--text-gray)] hover:text-[var(--purple-primary)] text-sm"
+              ><i class="fas fa-box-open text-[var(--text-gray)] text-base"></i>
+              Products / Inventory</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center gap-3 px-5 py-2 text-[var(--text-gray)] hover:text-[var(--purple-primary)] text-sm"
+              ><i class="fas fa-credit-card text-[var(--text-gray)] text-base"></i> Payments</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center gap-3 px-5 py-2 rounded-full bg-[var(--purple-primary)] text-white font-semibold text-sm"
+              ><i class="fas fa-comments text-white text-base"></i>
+              Support Tickets</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center gap-3 px-5 py-2 text-[var(--text-gray)] hover:text-[var(--purple-primary)] text-sm"
+              ><i class="fas fa-chart-line text-[var(--text-gray)] text-base"></i>
+              Analytics / Reports</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center gap-3 px-5 py-2 text-[var(--text-gray)] hover:text-[var(--purple-primary)] text-sm"
+              ><i class="fas fa-cog text-[var(--text-gray)] text-base"></i> Settings</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <div class="border-t border-[var(--gray-border)] px-5 py-3">
+        <a
+          href="#"
+          class="flex items-center gap-2 text-[var(--text-gray)] hover:text-[var(--purple-primary)] text-sm font-semibold"
+          ><i class="fas fa-sign-out-alt text-[var(--text-gray)] text-base"></i> Log at</a
+        >
+      </div>
+    </aside>
+    <!-- Main content -->
+    <main class="flex-1 p-8 bg-white rounded-l-lg">
+      <h1 class="text-2xl font-bold mb-6 text-[var(--text-dark-gray)]">Support Tickets</h1>
+      <div class="flex flex-wrap gap-4 mb-6">
+        <div
+          class="flex flex-col items-center bg-[var(--gray-light-bg)] rounded-md px-6 py-4 w-20"
+        >
+          <span class="text-2xl font-bold leading-none text-[var(--text-dark-gray)]">25</span>
+          <span class="text-sm font-normal text-[var(--text-gray)]">Open</span>
+        </div>
+        <div
+          class="flex flex-col items-center bg-[var(--gray-light-bg)] rounded-md px-6 py-4 w-20"
+        >
+          <span class="text-2xl font-bold leading-none text-[var(--text-dark-gray)]">8</span>
+          <span class="text-sm font-normal text-[var(--text-gray)]">In Progress</span>
+        </div>
+        <div
+          class="flex flex-col items-center bg-[var(--gray-light-bg)] rounded-md px-6 py-4 w-20"
+        >
+          <span class="text-2xl font-bold leading-none text-[var(--text-dark-gray)]">3</span>
+          <span class="text-sm font-normal text-[var(--text-gray)]">Closed</span>
+        </div>
+        <div
+          class="flex flex-col items-center bg-[var(--gray-light-bg)] rounded-md px-6 py-4 w-20"
+        >
+          <span class="text-2xl font-bold leading-none text-[var(--text-dark-gray)]">1</span>
+          <span class="text-sm font-normal text-[var(--text-gray)]">Reopened</span>
+        </div>
+      </div>
+      <div class="overflow-x-auto border border-[var(--gray-border)] rounded-md bg-white">
+        <table class="w-full text-sm text-left border-collapse border border-[var(--gray-border)]">
+          <thead class="bg-[var(--gray-light-bg)] text-[var(--text-dark-gray)] font-semibold">
+            <tr>
+              <th class="border border-[var(--gray-border)] px-3 py-2 w-20">ID</th>
+              <th class="border border-[var(--gray-border)] px-3 py-2">Subject</th>
+              <th class="border border-[var(--gray-border)] px-3 py-2 w-28">Status</th>
+              <th class="border border-[var(--gray-border)] px-3 py-2 w-28">Last Updated</th>
+              <th class="border border-[var(--gray-border)] px-3 py-2 w-20">Priority</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border border-[var(--gray-border)]">
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">T1204</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">Login issue</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2">
+                <span
+                  class="inline-block bg-[var(--purple-primary)] text-white text-xs font-semibold rounded px-2 py-0.5"
+                  >Open</span
+                >
+              </td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">12/24/21</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">Low</td>
+            </tr>
+            <tr class="border border-[var(--gray-border)]">
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">T1186</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">Order #1234 delay</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2">
+                <span
+                  class="inline-block bg-[var(--purple-dark)] text-white text-xs font-semibold rounded px-2 py-0.5"
+                  >In Progress</span
+                >
+              </td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">12/19/21</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">Medium</td>
+            </tr>
+            <tr class="border border-[var(--gray-border)]">
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">T1201</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">Cannot update profile</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2">
+                <span
+                  class="inline-block bg-purple-900 text-white text-xs font-semibold rounded px-2 py-0.5"
+                  >Closed</span
+                >
+              </td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">12/16/21</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">Low</td>
+            </tr>
+            <tr class="border border-[var(--gray-border)]">
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">T1120</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">Error in invoice payment</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2">
+                <span
+                  class="inline-block bg-purple-300 text-purple-900 text-xs font-semibold rounded px-2 py-0.5"
+                  >Reopened</span
+                >
+              </td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">12/12/21</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">Low</td>
+            </tr>
+            <tr class="border border-[var(--gray-border)]">
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">T1203</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">Question about product specs</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2">
+                <span
+                  class="inline-block bg-purple-300 text-purple-900 text-xs font-semibold rounded px-2 py-0.5"
+                  >Open</span
+                >
+              </td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">10/30/21</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">Low</td>
+            </tr>
+            <tr class="border border-[var(--gray-border)]">
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">T1168</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">Discount not applied</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2">
+                <span
+                  class="inline-block bg-[var(--purple-primary)] text-white text-xs font-semibold rounded px-2 py-0.5"
+                  >Open</span
+                >
+              </td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">10/16/21</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">Medium</td>
+            </tr>
+            <tr class="border border-[var(--gray-border)]">
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">T1205</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">Order cancellation inquiry</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2">
+                <span
+                  class="inline-block bg-purple-300 text-purple-900 text-xs font-semibold rounded px-2 py-0.5"
+                  >Reopened</span
+                >
+              </td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">10/15/21</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">Low</td>
+            </tr>
+            <tr class="border border-[var(--gray-border)]">
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">T1206</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">Technical assistance needed</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2">
+                <span
+                  class="inline-block bg-purple-300 text-purple-900 text-xs font-semibold rounded px-2 py-0.5"
+                  >Open</span
+                >
+              </td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">10/12/21</td>
+              <td class="border border-[var(--gray-border)] px-3 py-2 font-normal text-[var(--text-gray)]">Medium</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
